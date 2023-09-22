@@ -1,5 +1,6 @@
 //SPDX-License-Identifier: CC-BY-4.0
 // Endereço do contrato = 0x49a62ae9e66Ba2788cf2e345cA7e4B9f7e304770
+// Endereço do contrato (teste 2) = 0x6E8cc72F85cc0C899AC180Fd66c1f35D61e1b9bA
 
 pragma solidity 0.8.19;
 
@@ -29,7 +30,13 @@ contract Token is ExercicioToken {
         client[msg.sender]._tokenBalance += amount;
     }
 
-    
+    function saldoNativo() public view returns(uint256) {
+        return address(this).balance;
+    }
+
+    function tranferEther(uint256 _amount, address payable receiver) public payable {
+        require(_amount <= address(this).balance, "Saldo insuficiente");
+        receiver.transfer(_amount);
+    }
 
 }
-
