@@ -1,3 +1,6 @@
+//SPDX-License-Identifier: CC-BY-4.0
+// Endereço do contrato = 0x49a62ae9e66Ba2788cf2e345cA7e4B9f7e304770
+
 pragma solidity 0.8.19;
 
 import "contracts/bradesco_token_aberto.sol";
@@ -26,4 +29,7 @@ contract Token is ExercicioToken {
         client[msg.sender]._tokenBalance += amount;
     }
 
+    
+
 }
+
